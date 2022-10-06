@@ -1,0 +1,32 @@
+#classificacoes th,td{
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#classificacoes table{
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-spacing: 0;
+}
+
+#classificacoes thead{
+    background-color: #4b7e46;
+}
+
+.window{
+    width: 500px;
+    height: 400px;
+    display: none;
+    float: left;
+    position: fixed;
+    left: 30%;
+    top: 10%;
+    border-color: black;
+    border-style:solid;
+    background-color: #538d4e;
+}
+
+
+#ajuda{
+    padding: 2%;    
+}

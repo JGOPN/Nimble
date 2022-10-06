@@ -1,0 +1,16 @@
+h1{
+    font-family: monospace;
+    letter-spacing: 0.2em;
+}
+
+span{
+    display: inline-block;
+}
+
+#sp1{
+    background-color: #538d4e;
+}
+
+#sp2{
+    background-color: #f7da21;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Nimble </title>
+<link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet" href="style/windows.css">
+<script src="script/script.js"></script>
+</head> 
+<body>
+<h1> NIM<span id="sp1">b</span><span id="sp2">le</span></h1>
+<h2> Configurações </h2>
+<!-- select the length of the table -->
+<label for="length"> Tamanho do tabuleiro: </label>
+<input type="number" id="length" name="length" min="1" max="15" value="5">
+<br>
+
+<!-- select the oponet: machine or  player -->
+<label for="oponent"> Oponente: </label>
+<select id="oponent" name="oponent">
+<option value="machine"> Máquina </option>
+<option value="player"> Jogador </option>
+</select>
+<br>
+
+<!-- select the first player -->
+<label for="first"> Primeiro jogador: </label>
+<select id="first" name="first">
+<option value="machine"> Máquina </option>
+<option value="player"> Jogador </option>
+<option value="Me"> Eu </option>
+</select>
+<br>
+
+<!-- select the difficulty of the machine -->
+<label for="difficulty"> Dificuldade: </label>
+<select id="difficulty" name="difficulty">
+<option value="easy"> Fácil </option>
+<option value="medium"> Médio </option>
+<option value="hard"> Difícil </option>
+</select>
+<br>
+<br>
+
+<!-- button to start the game with the configurations -->
+<button id="start"> Iniciar Jogo</button>
+<br>
+<br>
+<!-- give up the game -->
+<button id="giveup"> Desistir </button>
+
+<!-- temporary screen with instructions of the game -->
+<button onclick="toggleDiv('ajuda')">Ajuda</button>
+<div class="window" id="ajuda" style="display: none;">
+    <h2> Instruções </h2>
+    <p> O jogo consiste em retirar peças de uma pilha. </p>
+    <p> O jogador que retirar a última peça perde. </p>
+    <p> O jogador que começa a jogar é escolhido aleatoriamente. </p>
+    <p> O jogador pode retirar uma ou mais peças por vez. </p>
+    <p> O jogador pode retirar peças de qualquer pilha. </p>
+</div>
+
+<!-- temporary screen with high scores -->
+<button onclick="toggleDiv('classificacoes')">Classificacoes</button>
+<div class="window" id="classificacoes" style="display: none;">
+    <table>
+        <thead>
+        <tr>
+            <th>Posicao</th>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>Pontuacao</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Joao</td>
+            <td>17/10/2022</td>
+            <td>2500</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Eduardo</td>
+            <td>15/10/2022</td>
+            <td>2450</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>David</td>
+            <td>13/10/2022</td>
+            <td>2400</td>
+        </tr>
+        </tbody> 
+    </table>
+</div>
+
+</body>
+</html>
