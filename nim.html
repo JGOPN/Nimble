@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title> Nimble </title>
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/css?family=Noto+Sans+Mono">
 <link rel="stylesheet" href="style/style.css">
-<link rel="stylesheet" href="style/windows.css">
-<script src="script/script.js"></script>
+<link rel="stylesheet" href="style/window.css">
+<script src="script/window.js"></script>
 </head> 
 <body>
-<h1> NIM<span id="sp1">b</span><span id="sp2">le</span></h1>
-<h2> Configurações </h2>
+<header>
+    <h1 id="logo">NIM<div id="l1">b</div><div id="l2">le</div></h1>   
+    <a href="#" onclick="toggleDiv('ajuda')">
+        <img class="headerIcon" src="style/images/help.png" alt="Toggle help"></a>
+    <a href="#" onclick="toggleDiv('classificacoes')">
+        <img class="headerIcon" src="style/images/trophy.png" alt="Toggle scores"></a>    
+</header>
+
+<div id="configuracoes">
+    <h2> Configurações </h2>
 <!-- select the length of the table -->
 <label for="length"> Tamanho do tabuleiro: </label>
 <input type="number" id="length" name="length" min="1" max="15" value="5">
@@ -47,9 +60,9 @@
 <br>
 <!-- give up the game -->
 <button id="giveup"> Desistir </button>
+</div>
 
 <!-- temporary screen with instructions of the game -->
-<button onclick="toggleDiv('ajuda')">Ajuda</button>
 <div class="window" id="ajuda" style="display: none;">
     <h2> Instruções </h2>
     <p> O jogo consiste em retirar peças de uma pilha. </p>
@@ -60,7 +73,6 @@
 </div>
 
 <!-- temporary screen with high scores -->
-<button onclick="toggleDiv('classificacoes')">Classificacoes</button>
 <div class="window" id="classificacoes" style="display: none;">
     <table>
         <thead>
