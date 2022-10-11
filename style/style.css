@@ -17,13 +17,31 @@ body{
 }
 
 header{
-    border-bottom: 2px solid var(--gray-2);
+    border-bottom: 2px solid var(--gray-2);   
 }
 
-h1{
+#headerWrapper{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
+}
+
+.headerIcon{
+    width: 40px;
+    margin: 7px;
+}
+
+#icons{
+    display: flex;
+    align-items: center;
+}
+
+#logo{
     font-family: Noto Sans Mono, monospace;
     color: var(--white);
     letter-spacing: 0.2em;
+    display: inline-block;
 }
 
 #logo div,p{
@@ -45,12 +63,13 @@ h1{
 }
 
 #configuracoes{
-    background-color: var(--black-3);
     color: #e1e1e1;
     padding: 2%;
 }
 
-.headerIcon{
-    width: 30px;
-    color: white;
+.board{
+    height: 400px;
+    width: auto;
+    background-color: var(--black-3);
+    border: 30px solid var(--black);
 }
