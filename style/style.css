@@ -58,12 +58,12 @@ header{
 
 #l2{
     background-color: var(--green);
-    width: 2em;
+    width: 1.8em;
     text-align: center;
 }
 
 #configuracoes{
-    color: #e1e1e1;
+    color: var(--white);
     padding: 2%;
 }
 
@@ -73,3 +73,30 @@ header{
     background-color: var(--black-3);
     border: 30px solid var(--black);
 }
+
+label{
+    font-size: 1.2em;
+}
+
+input,select, button{
+    font-family: Roboto, sans-serif;
+    box-sizing: border-box;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 2px;
+    border: 1px solid var(--black-2);
+    border-radius: 5px;
+}
+
+#configuracoes button{
+    padding: 3px;
+    width: 100px;
+}
+
+button:hover, button:active{
+    background-color: var(--black-3);
+}
+
+.select-selected {
+    background-color: DodgerBlue;
+  }
