@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Nimble </title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Mono">
-<link rel="stylesheet" href="style/style.css">
-<link rel="stylesheet" href="style/window.css">
-<script src="script/window.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nimble </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Mono&family=Roboto">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/window.css">
+    <link rel="stylesheet" href="style/board.css">
+    <script src="script/window.js"></script>
 </head> 
 <body>
 <header>
     <div id="headerWrapper">
         <h1 id="logo">NIM<div id="l1">b</div><div id="l2">le</div></h1>   
+        <div class="authentication">   
+            
+            <form action="#" method="get">
+                Email <input type="email" name="Email"> <br>
+                Password <input type="password" name="Password"> <br>
+                <input type="reset">
+                <input type="submit" value="Registar">
+            </form>
+        </div>
         <div id="icons">
             <a href="#" onclick="toggleDiv('configuracoes')">
                 <img class="headerIcon" src="style/images/settings.png" alt="Toggle settings"></a>
@@ -35,26 +45,26 @@
     <!-- select the oponet: machine or  player -->
     <label for="oponent"> Oponente: </label>
     <select id="oponent" name="oponent">
-    <option value="machine"> Máquina </option>
-    <option value="player"> Jogador </option>
+        <option value="machine"> Máquina </option>
+        <option value="player"> Jogador </option>
     </select>
     <br>
 
     <!-- select the first player -->
     <label for="first"> Primeiro jogador: </label>
     <select id="first" name="first">
-    <option value="Me"> Eu </option>
-    <option value="machine"> Máquina </option>
-    <option value="player"> Jogador </option>
+        <option value="me"> Eu </option>
+        <option value="machine"> Máquina </option>
+        <option value="player"> Jogador </option>
     </select>
     <br>
 
     <!-- select the difficulty of the machine -->
     <label for="difficulty"> Dificuldade: </label>
     <select id="difficulty" name="difficulty">
-    <option value="easy"> Fácil </option>
-    <option value="medium"> Médio </option>
-    <option value="hard"> Difícil </option>
+        <option value="easy"> Fácil </option>
+        <option value="medium"> Médio </option>
+        <option value="hard"> Difícil </option>
     </select>
     <br>
 
@@ -64,7 +74,64 @@
     <button id="giveup"> Desistir </button>
 </div>
 
-<div class="board">
+<div class="gameContainer">
+    <div class="board">
+        <div class="boardCol" id="column1">
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+
+        </div>
+        <div class="boardCol" id="column2">
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+        </div>
+        <div class="boardCol" id="column3">
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+        </div>
+        <div class="boardCol" id="column4">
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+        </div>
+        <div class="boardCol" id="column5">
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+            <div>
+                <img class="piece" src="style/images/pieces.png" alt="pieces">
+            </div>
+        </div>
+    </div>
+    <div class="actionGame" id="action">
+        <form action="#" method="get">
+            <label for="column"> Coluna: </label>
+            <input type="number" id="column" name="column" min="1" max="5" value="1">
+            <br>
+            <label for="pieces"> Peças: </label>
+            <input type="number" id="pieces" name="pieces" min="1" max="3" value="1">
+            <br>
+            <input type="submit" value="Remover">
+        </form>
+    </div>
 </div>
 
 <!-- temporary screen with instructions of the game -->

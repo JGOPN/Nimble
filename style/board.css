@@ -1,0 +1,26 @@
+.gameContainer{
+    background-color: var(--black-2);
+    border: 30px solid var(--black);
+}
+
+.board {
+    display: grid;
+    grid-template-rows:    repeat(auto-fit, 350px);
+    grid-template-columns: repeat(auto-fit , 100px);
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.boardCol {
+    padding: 5px;
+    background-color: var(--black-3);
+}
+
+.piece {
+    height: 100px;
+  }
+

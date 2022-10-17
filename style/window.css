@@ -10,7 +10,7 @@
 }
 
 #classificacoes thead{
-    background-color: #4b7e46;
+    background-color: var(--black-3);
 }
 
 .window{
@@ -21,9 +21,10 @@
     position: fixed;
     left: 30%;
     top: 10%;
-    border-color: black;
+    border-color: var(--gray);
     border-style:solid;
-    background-color: #538d4e;
+    background-color: var(--black-2);
+    color: var(--white);
 }
 
 .window button{

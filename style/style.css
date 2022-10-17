@@ -14,6 +14,7 @@
 body{
     background-color: var(--black);
     margin: 0;
+    font-family: Roboto, sans-serif;
 }
 
 header{
@@ -67,19 +68,11 @@ header{
     padding: 2%;
 }
 
-.board{
-    height: 400px;
-    width: auto;
-    background-color: var(--black-3);
-    border: 30px solid var(--black);
-}
-
 label{
     font-size: 1.2em;
 }
 
 input,select, button{
-    font-family: Roboto, sans-serif;
     box-sizing: border-box;
     background-color: var(--black);
     color: var(--white);
@@ -97,6 +90,29 @@ button:hover, button:active{
     background-color: var(--black-3);
 }
 
-.select-selected {
-    background-color: DodgerBlue;
-  }
+.actionGame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-2);
+    border-top: 10px solid var(--black);
+    color: var(--white);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}  
+
+
+.authentication{
+    display: flex;
+    justify-content:space-around;
+    height: 100%;
+    padding: 5px;
+    width: 25%;
+    background-color: rgba(6, 6, 5, 0.5);
+    color: var(--white);
+    font-size: 1.5em;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
