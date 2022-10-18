@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,175 +11,201 @@
     <link rel="stylesheet" href="style/window.css">
     <link rel="stylesheet" href="style/board.css">
     <script src="script/window.js"></script>
-</head> 
+</head>
+
 <body>
-<header>
-    <div id="headerWrapper">
-        <h1 id="logo">NIM<div id="l1">b</div><div id="l2">le</div></h1>   
-        <div class="authentication">   
-            
+    <header>
+        <div id="headerWrapper">
+            <h1 id="logo">NIM<div id="l1">b</div>
+                <div id="l2">le</div>
+            </h1>
+
+
+            <div id="icons">
+                <a href="#" onclick="toggleDiv('autenticacao')">
+                    <img class="headerIconlogin" src="style/images/login.png" alt="Toggle authentication"></a>
+                <a href="#" onclick="toggleDiv('configuracoes')">
+                    <img class="headerIcon" src="style/images/settings.png" alt="Toggle settings"></a>
+                <a href="#" onclick="toggleDiv('ajuda')">
+                    <img class="headerIcon" src="style/images/help.png" alt="Toggle help"></a>
+                <a href="#" onclick="toggleDiv('classificacoes')">
+                    <img class="headerIcon" src="style/images/trophy.png" alt="Toggle scores"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="config" id="configuracoes">
+        <h2>Configurações</h2>
+        <!-- select the length of the table -->
+        <label for="length"> Tamanho do tabuleiro: </label>
+        <input type="number" id="length" name="length" min="1" max="15" value="5">
+        <br>
+
+        <!-- select the oponet: machine or  player -->
+        <label for="oponent"> Oponente: </label>
+        <select id="oponent" name="oponent">
+            <option value="machine"> Máquina </option>
+            <option value="player"> Jogador </option>
+        </select>
+        <br>
+
+        <!-- select the first player -->
+        <label for="first"> Primeiro jogador: </label>
+        <select id="first" name="first">
+            <option value="me"> Eu </option>
+            <option value="machine"> Máquina </option>
+            <option value="player"> Jogador </option>
+        </select>
+        <br>
+
+        <!-- select the difficulty of the machine -->
+        <label for="difficulty"> Dificuldade: </label>
+        <select id="difficulty" name="difficulty">
+            <option value="easy"> Fácil </option>
+            <option value="medium"> Médio </option>
+            <option value="hard"> Difícil </option>
+        </select>
+        <br>
+
+        <!-- button to start the game with the configurations -->
+        <button id="start"> Iniciar Jogo</button>
+        <!-- give up the game -->
+        <button id="giveup"> Desistir </button>
+    </div>
+
+    <div class="authentication" id="autenticacao">
+        <form>
+            <div class="form-input">
+                <input type="email" placeholder="Email / Username" required="">
+            </div>
+            <div class="form-input">
+                <input type="password" placeholder="Password" required="">
+            </div>
+            <div class="form-input">
+                <button class="login_button" type="submit">Log in</button>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+
+    <div class="gameContainer">
+        <div class="board">
+            <div class="boardCol" id="column1">
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+
+            </div>
+            <div class="boardCol" id="column2">
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+            </div>
+            <div class="boardCol" id="column3">
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+            </div>
+            <div class="boardCol" id="column4">
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+            </div>
+            <div class="boardCol" id="column5">
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+                <div>
+                    <img class="piece" src="style/images/pieces.png" alt="pieces">
+                </div>
+            </div>
+        </div>
+        <div class="actionGame" id="action">
             <form action="#" method="get">
-                Email <input type="email" name="Email"> <br>
-                Password <input type="password" name="Password"> <br>
-                <input type="reset">
-                <input type="submit" value="Registar">
+                <label for="column"> Coluna: </label>
+                <input type="number" id="column" name="column" min="1" max="5" value="1">
+                <br>
+                <label for="pieces"> Peças: </label>
+                <input type="number" id="pieces" name="pieces" min="1" max="3" value="1">
+                <br>
+                <input type="submit" value="Remover">
             </form>
         </div>
-        <div id="icons">
-            <a href="#" onclick="toggleDiv('configuracoes')">
-                <img class="headerIcon" src="style/images/settings.png" alt="Toggle settings"></a>
-            <a href="#" onclick="toggleDiv('ajuda')">
-                <img class="headerIcon" src="style/images/help.png" alt="Toggle help"></a>
-            <a href="#" onclick="toggleDiv('classificacoes')">
-                <img class="headerIcon" src="style/images/trophy.png" alt="Toggle scores"></a>    
-        </div>
     </div>
-</header>
 
-<div id="configuracoes">
-    <h2>Configurações</h2>
-    <!-- select the length of the table -->
-    <label for="length"> Tamanho do tabuleiro: </label>
-    <input type="number" id="length" name="length" min="1" max="15" value="5">
-    <br>
 
-    <!-- select the oponet: machine or  player -->
-    <label for="oponent"> Oponente: </label>
-    <select id="oponent" name="oponent">
-        <option value="machine"> Máquina </option>
-        <option value="player"> Jogador </option>
-    </select>
-    <br>
 
-    <!-- select the first player -->
-    <label for="first"> Primeiro jogador: </label>
-    <select id="first" name="first">
-        <option value="me"> Eu </option>
-        <option value="machine"> Máquina </option>
-        <option value="player"> Jogador </option>
-    </select>
-    <br>
 
-    <!-- select the difficulty of the machine -->
-    <label for="difficulty"> Dificuldade: </label>
-    <select id="difficulty" name="difficulty">
-        <option value="easy"> Fácil </option>
-        <option value="medium"> Médio </option>
-        <option value="hard"> Difícil </option>
-    </select>
-    <br>
 
-    <!-- button to start the game with the configurations -->
-    <button id="start"> Iniciar Jogo</button>
-    <!-- give up the game -->
-    <button id="giveup"> Desistir </button>
-</div>
 
-<div class="gameContainer">
-    <div class="board">
-        <div class="boardCol" id="column1">
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
 
-        </div>
-        <div class="boardCol" id="column2">
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-        </div>
-        <div class="boardCol" id="column3">
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-        </div>
-        <div class="boardCol" id="column4">
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-        </div>
-        <div class="boardCol" id="column5">
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-            <div>
-                <img class="piece" src="style/images/pieces.png" alt="pieces">
-            </div>
-        </div>
+
+
+    <!-- temporary screen with instructions of the game -->
+    <div class="window" id="ajuda" style="display: none;">
+        <button onclick="toggleDiv('ajuda')">X</button>
+        <h2> Instruções </h2>
+        <p> O jogo consiste em retirar peças de uma pilha. </p>
+        <p> O jogador que retirar a última peça perde. </p>
+        <p> O jogador que começa a jogar é escolhido aleatoriamente. </p>
+        <p> O jogador pode retirar uma ou mais peças por vez. </p>
+        <p> O jogador pode retirar peças de qualquer pilha. </p>
     </div>
-    <div class="actionGame" id="action">
-        <form action="#" method="get">
-            <label for="column"> Coluna: </label>
-            <input type="number" id="column" name="column" min="1" max="5" value="1">
-            <br>
-            <label for="pieces"> Peças: </label>
-            <input type="number" id="pieces" name="pieces" min="1" max="3" value="1">
-            <br>
-            <input type="submit" value="Remover">
-        </form>
+
+    <!-- temporary screen with high scores -->
+    <div class="window" id="classificacoes" style="display: none;">
+        <button onclick="toggleDiv('classificacoes')">X</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Posicao</th>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Pontuacao</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Joao</td>
+                    <td>17/10/2022</td>
+                    <td>2500</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Eduardo</td>
+                    <td>15/10/2022</td>
+                    <td>2450</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>David</td>
+                    <td>13/10/2022</td>
+                    <td>2400</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-
-<!-- temporary screen with instructions of the game -->
-<div class="window" id="ajuda" style="display: none;">
-    <button onclick="toggleDiv('ajuda')">X</button>
-    <h2> Instruções </h2>
-    <p> O jogo consiste em retirar peças de uma pilha. </p>
-    <p> O jogador que retirar a última peça perde. </p>
-    <p> O jogador que começa a jogar é escolhido aleatoriamente. </p>
-    <p> O jogador pode retirar uma ou mais peças por vez. </p>
-    <p> O jogador pode retirar peças de qualquer pilha. </p>
-</div>
-
-<!-- temporary screen with high scores -->
-<div class="window" id="classificacoes" style="display: none;">
-    <button onclick="toggleDiv('classificacoes')">X</button>
-    <table>
-        <thead>
-        <tr>
-            <th>Posicao</th>
-            <th>Nome</th>
-            <th>Data</th>
-            <th>Pontuacao</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td>Joao</td>
-            <td>17/10/2022</td>
-            <td>2500</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Eduardo</td>
-            <td>15/10/2022</td>
-            <td>2450</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>David</td>
-            <td>13/10/2022</td>
-            <td>2400</td>
-        </tr>
-        </tbody> 
-    </table>
-</div>
 
 </body>
+
 </html>
