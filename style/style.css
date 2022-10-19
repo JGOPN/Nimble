@@ -26,6 +26,7 @@ header{
     justify-content: space-between;
     text-align: center;
     padding: 10px;
+    height: 90px;
 }
 
 .headerIcon{
@@ -42,6 +43,7 @@ header{
 #icons{
     display: flex;
     align-items: center;
+    margin-right: 2%;
 }
 
 #logo{
@@ -49,6 +51,7 @@ header{
     color: var(--white);
     letter-spacing: 0.2em;
     display: inline-block;
+    margin-left: 2%;
 }
 
 #logo div,p{
@@ -96,29 +99,8 @@ button:hover, button:active{
     background-color: var(--black-3);
 }
 
-.actionGame{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--black-2);
-    border-top: 10px solid var(--black);
-    color: var(--white);
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}  
-
-
-
-
-
-
-
-
 
 /*--------------- AUTHENTICATION STYLE ---------------------------*/
-
 
 .authentication{
     display: flex;
@@ -135,43 +117,24 @@ button:hover, button:active{
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-
-
-  form .form-input {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+.authentication div {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    cursor: auto;
-    margin-bottom: 1rem; 
-    font-family: inherit;
     width: 75%;
     margin: 0 auto;
     padding: 0.9rem 0.7rem;
-   
   }
 
-  form input {
-    font-family: inherit;
+  .authentication input{
+    font-size: 0.8em;
     width: 75%;
-    outline: none;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 4px;
-    border: none;
-    display: block;
-    padding: 0.9rem 0.7rem;
-    font-size: 17px;
-    color: #4A4A4A;
-    text-indent: 40px;
   }
  
-  form .login_button {
+  .login_button {
     outline: none;
     border: none;
     cursor: pointer;
@@ -179,23 +142,18 @@ button:hover, button:active{
     margin: 0 auto;
     padding: 0.9rem 2.5rem;
     text-align: center;
-
-    background-color: #f7da21;;
-    color: #fff;
+    background-color: var(--BeeYellow);
+    color: var(--white);
     border-radius: 4px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-    font-size: 17px;
+    font-size: 1em;
   }
 
 
 
 /*-----------------------------------------*/
 
-
-
-
 /*--------------- Configuration STYLE ---------------------------*/
-
 
 .config{
     display: flex;
@@ -208,8 +166,19 @@ button:hover, button:active{
     font-size: 1.5em;
     text-align: center;
     position: fixed;
-    left: 0;
+    float: left;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.actionGame{
+    background-color: var(--black-2);
+    border-top: 10px solid var(--black);
+    color: var(--white);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}  
 
+.actionGame label, .actionGame input{
+    display: inline;
+}

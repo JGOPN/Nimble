@@ -13,21 +13,31 @@
     background-color: var(--black-3);
 }
 
+#ajuda ul{
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+#ajuda h2{
+    text-align: center;
+}
+
 .window{
-    width: 500px;
+    width: 50%;
     height: 400px;
+    padding: 3%;
     display: none;
     float: left;
     position: fixed;
-    left: 30%;
+    left: 20%;
     top: 10%;
-    border-color: var(--gray);
-    border-style:solid;
-    background-color: var(--black-2);
+    background-color: rgba(6, 6, 5, 0.9);
     color: var(--white);
 }
 
 .window button{
     float: right;
+    height: 5%;
+    width: 5%; 
 }
 

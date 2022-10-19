@@ -12,7 +12,7 @@
     justify-content: center;
     width: 80%;
     margin: 0 auto;
-    list-style: none;
+    align-items: flex-end;
 }
 
 .boardCol {

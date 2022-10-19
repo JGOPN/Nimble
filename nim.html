@@ -16,11 +16,7 @@
 <body>
     <header>
         <div id="headerWrapper">
-            <h1 id="logo">NIM<div id="l1">b</div>
-                <div id="l2">le</div>
-            </h1>
-
-
+            <h1 id="logo">NIM<div id="l1">b</div><div id="l2">le</div></h1>
             <div id="icons">
                 <a href="#" onclick="toggleDiv('autenticacao')">
                     <img class="headerIconlogin" src="style/images/login.png" alt="Toggle authentication"></a>
@@ -34,7 +30,7 @@
         </div>
     </header>
 
-    <div class="config" id="configuracoes">
+    <div class="config" id="configuracoes" style="display: none;">
         <h2>Configurações</h2>
         <!-- select the length of the table -->
         <label for="length"> Tamanho do tabuleiro: </label>
@@ -73,24 +69,21 @@
         <button id="giveup"> Desistir </button>
     </div>
 
-    <div class="authentication" id="autenticacao">
+    <div class="authentication" id="autenticacao" style="display: none;">
+        <h2>Autenticação</h2>
         <form>
-            <div class="form-input">
+            <div>
                 <input type="email" placeholder="Email / Username" required="">
             </div>
-            <div class="form-input">
+            <div>
                 <input type="password" placeholder="Password" required="">
             </div>
-            <div class="form-input">
+            <div>
                 <button class="login_button" type="submit">Log in</button>
             </div>
         </form>
 
     </div>
-
-
-
-
 
     <div class="gameContainer">
         <div class="board">
@@ -139,6 +132,7 @@
                 </div>
             </div>
         </div>
+
         <div class="actionGame" id="action">
             <form action="#" method="get">
                 <label for="column"> Coluna: </label>
@@ -147,28 +141,22 @@
                 <label for="pieces"> Peças: </label>
                 <input type="number" id="pieces" name="pieces" min="1" max="3" value="1">
                 <br>
-                <input type="submit" value="Remover">
+                <input type="submit" value="remover">
             </form>
         </div>
     </div>
 
-
-
-
-
-
-
-
-
     <!-- temporary screen with instructions of the game -->
     <div class="window" id="ajuda" style="display: none;">
         <button onclick="toggleDiv('ajuda')">X</button>
-        <h2> Instruções </h2>
-        <p> O jogo consiste em retirar peças de uma pilha. </p>
-        <p> O jogador que retirar a última peça perde. </p>
-        <p> O jogador que começa a jogar é escolhido aleatoriamente. </p>
-        <p> O jogador pode retirar uma ou mais peças por vez. </p>
-        <p> O jogador pode retirar peças de qualquer pilha. </p>
+        <h2>Instruções</h2>
+        <ul>
+            <li>O jogo consiste em retirar peças de uma pilha.</li>
+            <li>O jogador que retirar a última peça perde.</li>
+            <li>O jogador que começa a jogar é escolhido aleatoriamente.</li>
+            <li>O jogador pode retirar uma ou mais peças por vez.</li>
+            <li>O jogador pode retirar peças de qualquer pilha.</li>
+        </ul>
     </div>
 
     <!-- temporary screen with high scores -->
@@ -177,8 +165,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>Posicao</th>
-                    <th>Nome</th>
+                    <th>#</th>
+                    <th>Jogador 1</th>
+                    <th>Jogador 2</th>
                     <th>Data</th>
                     <th>Pontuacao</th>
                 </tr>
@@ -187,18 +176,21 @@
                 <tr>
                     <td>1</td>
                     <td>Joao</td>
+                    <td>Bot (Hard)</td>
                     <td>17/10/2022</td>
                     <td>2500</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Eduardo</td>
+                    <td>Bot (Hard)</td>
                     <td>15/10/2022</td>
                     <td>2450</td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>David</td>
+                    <td>Bot (Hard)</td>
                     <td>13/10/2022</td>
                     <td>2400</td>
                 </tr>
