@@ -1,26 +1,27 @@
-
 window.addEventListener("load",function(){
     console.log("loaded");
 },false);
+
+let boardArray;
 
 function generateBoard(npieces,cols){
     const base = document.getElementById("gameContainer");
     const board = document.createElement('div');
     board.classList.add("board");
-    
+    game.board = new Array(cols);
+
     document.getElementById("start").onclick = function(){this.disabled=true;}
 
     for(let i=0; i<cols; i++){
         let col = document.createElement('div');
         col.classList.add("boardCol");
         col.setAttribute("id","c"+i);
-
         let n = Math.floor(Math.random()*4)+1; /* entre 1-5 por pilha */
-        console.log(n)
+        game.board[i] = n;
+
         for(let j=n-1; j>=0; j--){
             const piece = document.createElement("div");
             piece.classList.add("piece");
-            //piece.setAttribute("id",i+""+j);
             piece.classList.add("r"+j);
             col.appendChild(piece);
         }
@@ -35,8 +36,7 @@ function addPieceListener(){
     let pieces = document.getElementsByClassName("piece");
     for(let piece of pieces){
         piece.addEventListener('click', () => {
-            console.log("removing from col " + piece.parentElement.id + " row " + piece.classList[1])
-            piece.addEventListener("click",removePieces(
+            piece.addEventListener("click",game.play(
                 piece.parentElement.id, piece.classList[1][1]
             ),false);
         },false)
@@ -46,13 +46,10 @@ function addPieceListener(){
 function removePieces(col,row){
     let column = document.getElementById(col);
     let pieces = column.childNodes;
-    console.log("removing from " + col + ":");
-    let removed = ""
+    console.log(pieces);
     for(let i = 0; i <= row; row--){
-        removed += row + ", "
         pieces[i].remove();
     }
-    console.log(removed);
 }
 
 function addPieces(n){
@@ -60,4 +57,9 @@ function addPieces(n){
     //o numero n (maximo de pecas maximas por cada coluna vai ser decidido no generateBoard?)
     let rand = Math.floor(Math.random() * n + 1);
     console.log("adding " + rand + " pieces")
+}
+
+function countPieces(colId){
+    let col = document.getElementById(colId);
+    return col.childElementCount;
 }
