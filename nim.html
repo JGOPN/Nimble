@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style/window.css">
     <link rel="stylesheet" href="style/board.css">
     <script src="script/window.js"></script>
+    <script src="script/board.js"></script>
 </head>
 
 <body>
@@ -64,12 +65,13 @@
         <br>
 
         <!-- button to start the game with the configurations -->
-        <button id="start"> Iniciar Jogo</button>
+        <button id="start" type="submit" onclick="generateBoard(3,3); this.disabled = true;">Iniciar jogo</button>
         <!-- give up the game -->
         <button id="giveup"> Desistir </button>
     </div>
 
     <div class="authentication" id="autenticacao" style="display: none;">
+        <!-- criar view quando usuario faz login (mostrar info e botao logout) -->
         <h2>Autenticação</h2>
         <form>
             <div>
@@ -85,66 +87,7 @@
 
     </div>
 
-    <div class="gameContainer">
-        <div class="board">
-            <div class="boardCol" id="column1">
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-
-            </div>
-            <div class="boardCol" id="column2">
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-            </div>
-            <div class="boardCol" id="column3">
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-            </div>
-            <div class="boardCol" id="column4">
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-            </div>
-            <div class="boardCol" id="column5">
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-                <div>
-                    <img class="piece" src="style/images/pieces.png" alt="pieces">
-                </div>
-            </div>
-        </div>
-
-        <div class="actionGame" id="action">
-            <form action="#" method="get">
-                <label for="column"> Coluna: </label>
-                <input type="number" id="column" name="column" min="1" max="5" value="1">
-                <br>
-                <label for="pieces"> Peças: </label>
-                <input type="number" id="pieces" name="pieces" min="1" max="3" value="1">
-                <br>
-                <input type="submit" value="remover">
-            </form>
-        </div>
-    </div>
+    <div id="gameContainer"></div>
 
     <!-- temporary screen with instructions of the game -->
     <div class="window" id="ajuda" style="display: none;">

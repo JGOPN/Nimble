@@ -1,4 +1,4 @@
-.gameContainer{
+#gameContainer{
     background-color: var(--black-2);
     border: 30px solid var(--black);
 }
@@ -21,6 +21,12 @@
 }
 
 .piece {
-    height: 100px;
+    height: 90px;
+    background-image: url("/style/images/alien.png");
+    background-size: contain;    
   }
+
+.boardCol .piece:hover{
+    background-color: rgba(42, 42, 42, 1)    
+}
 
