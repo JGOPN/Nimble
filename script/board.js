@@ -2,22 +2,22 @@ window.addEventListener("load",function(){
     console.log("loaded");
 },false);
 
-let boardArray;
-
 function generateBoard(npieces,cols){
     const base = document.getElementById("gameContainer");
     const board = document.createElement('div');
     board.classList.add("board");
+
     game.board = new Array(cols);
 
-    document.getElementById("start").onclick = function(){this.disabled=true;}
+    let biggestColumn = 0; //depois gameContainer min-height = biggestcolumn * pieceheight * 1.1
 
     for(let i=0; i<cols; i++){
         let col = document.createElement('div');
         col.classList.add("boardCol");
         col.setAttribute("id","c"+i);
         let n = Math.floor(Math.random()*4)+1; /* entre 1-5 por pilha */
-        game.board[i] = n;
+        if(n>biggestColumn) biggestColumn=n;
+        game.board[i] = n; //game.board = array com piece count de cada coluna
 
         for(let j=n-1; j>=0; j--){
             const piece = document.createElement("div");
@@ -30,6 +30,8 @@ function generateBoard(npieces,cols){
 
     base.append(board);
     addPieceListener();
+    base.style.minHeight = biggestColumn * document.querySelector(".piece").clientHeight * 1.2 + "px";
+    game.init();
 }
 
 function addPieceListener(){    
@@ -39,17 +41,31 @@ function addPieceListener(){
             piece.addEventListener("click",game.play(
                 piece.parentElement.id, piece.classList[1][1]
             ),false);
-        },false)
+        },false);
+        piece.addEventListener('mouseover',() => {
+            piece.parentElement.childNodes.forEach((element) => { 
+                if(element.classList[1]<=piece.classList[1])
+                    element.classList.add("highlited-piece");
+             })
+        })
+        piece.addEventListener('mouseout',() => {
+            piece.parentElement.childNodes.forEach((element) => { 
+                element.classList.remove("highlited-piece");
+             })
+        })
+
     }
 }
 
 function removePieces(col,row){
     let column = document.getElementById(col);
     let pieces = column.childNodes;
-    console.log(pieces);
     for(let i = 0; i <= row; row--){
         pieces[i].remove();
     }
+    pieces.forEach((element) => { 
+        element.classList.remove("highlited-piece");
+     })
 }
 
 function addPieces(n){

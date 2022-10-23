@@ -1,18 +1,25 @@
 const Difficulty = {
     Easy: 0,
-    Medium: 0,
-    Hard: 0
+    Medium: 1,
+    Hard: 2
 }
 
 const players = ["Player 1", "AI", "Player 2"];
 
 var game = {
-    opponent: 0, /* 0=ai, 1=jogador */
+    opponent: 0, /* 0=ai, 1=jogador 2*/
     firstPlayer: 0, /* 0=P1, 1=ai, 2=P2*/
     difficulty: Difficulty.Easy,
     turn: 0, /* 0 ou 1 */
     board: [],
     ncols: 4,
+
+    init: function(){
+        this.opponent = document.getElementById("opponent").value;
+        this.firstPlayer = document.getElementById("first").value;
+        this.difficulty = document.getElementById("difficulty").value;
+        //this.ncols = document.getElementById("size").value;
+    },
 
     switchTurn: function(){
         //troca turn entre 0 e 1
@@ -52,20 +59,6 @@ var game = {
         return false;
     },
 
-    state: function(){
-        //so considera first = p1 vs ai
-        while(!this.isEmpty){
-            //jogador inicial joga
-            alert("vez do " + players[this.turnPlayer()]);
-            game.checkWinner();
-            this.switchTurn;
-            //outro jogador joga
-            alert("vez do " + players[this.turnPlayer()]);
-            this.play(this.generateRandomPlay(),1);
-            this.checkWinner();
-            this.switchTurn();
-        }
-    },
     play: function(col,row){
         let c = parseInt(col[1]) +1;
         let r = parseInt(row) +1;
@@ -73,21 +66,31 @@ var game = {
         game.board[c-1]-=r;
         console.log(players[this.turnPlayer()] + " removes from column " + c + ", rows 1-"+ r);
         this.checkWinner()
-        this.switchTurn();        
+        this.switchTurn();
+        toggleDiv("thinking");
+        setTimeout(() => this.aiplay(),1000);
     },
 
     aiplay: function(){
         let col = this.generateRandomPlay();
-        let row = countPieces(col)-1;
-        row = Math.floor(Math.random()*10)%row;
-        console.log("col: " + col + " row:" + row);
+        let row = countPieces(col);
+        row = Math.floor(Math.random()*row);
+        console.log(players[this.turnPlayer()] + " removes from column " + col + ", "+ (row+1) + "rows");
+        removePieces(col,row);
+        game.board[col[1]] -= (row+1);
+        toggleDiv("thinking");
+        this.checkWinner()
+        this.switchTurn();        
     },
 
-    generateRandomPlay(){
+    generateRandomPlay: function(){
         while(true){
-            let rand = Math.floor(Math.random()*10);
-            console.log(rand);
-            if(this.board[rand%this.ncols]>0) return ("c"+rand%this.ncols);
+            let rand = Math.floor(Math.random()*this.ncols);
+            if(this.board[rand]>0) return ("c"+rand);
         }
+    },
+
+    generateBestPlay: function(){
+
     }
     };

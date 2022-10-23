@@ -14,7 +14,7 @@
 body{
     background-color: var(--black);
     margin: 0;
-    font-family: Roboto, sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 header{
@@ -47,7 +47,7 @@ header{
 }
 
 #logo{
-    font-family: Noto Sans Mono, monospace;
+    font-family: "Noto Sans Mono", monospace;
     color: var(--white);
     letter-spacing: 0.2em;
     display: inline-block;
@@ -118,13 +118,8 @@ button:hover, button:active{
 }
 
 .authentication div {
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    width: 75%;
     margin: 0 auto;
     padding: 0.9rem 0.7rem;
   }
@@ -141,12 +136,13 @@ button:hover, button:active{
     display: inline-block;
     margin: 0 auto;
     padding: 0.9rem 2.5rem;
-    text-align: center;
     background-color: var(--BeeYellow);
     color: var(--white);
     border-radius: 4px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-    font-size: 1em;
+    font-size: 80%;
+    width: 50%;
+    height: 4%;
   }
 
 
@@ -181,4 +177,32 @@ button:hover, button:active{
 
 .actionGame label, .actionGame input{
     display: inline;
+}
+
+#start{
+    background-color: var(--green);
+    color: var(--white);
+    margin: 2%;
+    border: 1px solid var(--black-2); 
+    font-weight: bold;
+    width: 50%;
+    height: 4%;
+
+}
+
+#giveup{
+    background-color: var(--BeeYellow);
+    color: var(--white);
+    margin: 2%;
+    border: 1px solid var(--black-2);
+    font-weight: bold;
+    width: 50%;
+    height: 4%;
+}
+
+#thinking{
+    height: 90px;
+    float: right;
+    position: relative;
+    left: 90%;
 }

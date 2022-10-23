@@ -1,6 +1,8 @@
 #gameContainer{
     background-color: var(--black-2);
     border: 30px solid var(--black);
+    display: flex;
+    align-items: flex-end;
 }
 
 .board {
@@ -22,11 +24,14 @@
 
 .piece {
     height: 90px;
-    background-image: url("/style/images/alien.png");
+    background-image: url("/style/images/ufo.png");
     background-size: contain;    
   }
 
-.boardCol .piece:hover{
-    background-color: rgba(42, 42, 42, 1)    
+.piece:hover{
+    background-color: rgb(42, 42, 42)
 }
 
+.highlited-piece{
+    filter: brightness(0.5);
+}

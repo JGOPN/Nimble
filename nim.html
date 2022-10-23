@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -36,40 +36,40 @@
     <div class="config" id="configuracoes" style="display: none;">
         <h2>Configurações</h2>
         <!-- select the length of the table -->
-        <label for="length"> Tamanho do tabuleiro: </label>
-        <input type="number" id="length" name="length" min="1" max="15" value="5">
+        <label for="size"> Tamanho do tabuleiro: </label>
+        <input type="number" id="size" name="size" min="2" max="10" value="4">
         <br>
 
         <!-- select the oponet: machine or  player -->
-        <label for="oponent"> Oponente: </label>
-        <select id="oponent" name="oponent">
-            <option value="machine"> Máquina </option>
-            <option value="player"> Jogador </option>
+        <label for="opponent"> Oponente: </label>
+        <select id="opponent" name="opponent">
+            <option value=0>AI</option>
+            <option value=1>Jogador 2</option>
         </select>
         <br>
 
         <!-- select the first player -->
         <label for="first"> Primeiro jogador: </label>
         <select id="first" name="first">
-            <option value="me"> Eu </option>
-            <option value="machine"> Máquina </option>
-            <option value="player"> Jogador </option>
+            <option value=0>Eu</option>
+            <option value=1>AI</option>
+            <option value=2>Jogador 2</option>
         </select>
         <br>
 
         <!-- select the difficulty of the machine -->
         <label for="difficulty"> Dificuldade: </label>
         <select id="difficulty" name="difficulty">
-            <option value="easy"> Fácil </option>
-            <option value="medium"> Médio </option>
-            <option value="hard"> Difícil </option>
+            <option value=0> Fácil </option>
+            <option value=1> Médio </option>
+            <option value=2> Difícil </option>
         </select>
         <br>
 
         <!-- button to start the game with the configurations -->
-        <button id="start" type="submit" onclick="generateBoard(4,4); this.disabled = true;">Iniciar jogo</button>
+        <button id="start" type="submit" onclick="generateBoard(4,4);">Iniciar jogo</button>
         <!-- give up the game -->
-        <button id="giveup"> Desistir </button>
+        <button id="giveup" onclick="giveup()"> Desistir </button>
     </div>
 
     <div class="authentication" id="autenticacao" style="display: none;">
@@ -77,7 +77,7 @@
         <h2>Autenticação</h2>
         <form>
             <div>
-                <input type="email" placeholder="Email / Username" required="">
+                <input type="text" placeholder="Username" required="">
             </div>
             <div>
                 <input type="password" placeholder="Password" required="">
@@ -89,7 +89,9 @@
 
     </div>
 
-    <div id="gameContainer"></div>
+    <div id="gameContainer">
+        <img id="thinking" src="/style/images/refresh-dot.png" alt="thinking..." style="display: none;">
+    </div>
 
     <!-- temporary screen with instructions of the game -->
     <div class="window" id="ajuda" style="display: none;">
@@ -98,7 +100,6 @@
         <ul>
             <li>O jogo consiste em retirar peças de uma pilha.</li>
             <li>O jogador que retirar a última peça perde.</li>
-            <li>O jogador que começa a jogar é escolhido aleatoriamente.</li>
             <li>O jogador pode retirar uma ou mais peças por vez.</li>
             <li>O jogador pode retirar peças de qualquer pilha.</li>
         </ul>
