@@ -3,6 +3,9 @@ window.addEventListener("load",function(){
 },false);
 
 function generateBoard(npieces,cols){
+    if(document.querySelector(".board")!=null){
+        document.querySelector(".board").remove();
+    }
     const base = document.getElementById("gameContainer");
     const board = document.createElement('div');
     board.classList.add("board");
@@ -31,7 +34,7 @@ function generateBoard(npieces,cols){
     base.append(board);
     addPieceListener();
     base.style.minHeight = biggestColumn * document.querySelector(".piece").clientHeight * 1.2 + "px";
-    game.init();
+    //game.init();
 }
 
 function addPieceListener(){    

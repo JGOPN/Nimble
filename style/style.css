@@ -30,46 +30,54 @@ header{
 }
 
 .headerIcon{
-    width: 40px;
+    width: 70%;
     margin: 7px;
 }
-
-.headerIconlogin{
-    width: 30px;
-    margin: 7px;
-}
-
 
 #icons{
     display: flex;
     align-items: center;
     margin-right: 2%;
+    width: 20%;
 }
 
 #logo{
+    height: 50%;
+    width: 200px;
+    display: flex;
+    margin-left: 2%;
+    position: relative;
+    top: 20%;
+}
+
+#logo h1{
     font-family: "Noto Sans Mono", monospace;
     color: var(--white);
     letter-spacing: 0.2em;
-    display: inline-block;
-    margin-left: 2%;
 }
 
-#logo div,p{
+#logo h1{
     display: inline-block;
-    margin: 0;
     margin-block: 0;
 }
 
-#l1{
+#t1{
     background-color: var(--BeeYellow);
-    width: 1em;
     text-align: right;
 }
 
-#l2{
+#t1 h1{
+    width: 1em;
+}
+
+#t2{
     background-color: var(--green);
-    width: 1.8em;
     text-align: center;
+    width: 3.5em;
+}
+
+#t2 h2{
+    width: 2em;
 }
 
 #configuracoes{

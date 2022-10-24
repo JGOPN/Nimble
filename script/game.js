@@ -15,9 +15,9 @@ var game = {
     ncols: 4,
 
     init: function(){
-        this.opponent = document.getElementById("opponent").value;
-        this.firstPlayer = document.getElementById("first").value;
-        this.difficulty = document.getElementById("difficulty").value;
+        //this.opponent = document.getElementById("opponent").value;
+        //this.firstPlayer = document.getElementById("first").value;
+        //this.difficulty = document.getElementById("difficulty").value;
         //this.ncols = document.getElementById("size").value;
     },
 
@@ -65,10 +65,11 @@ var game = {
         removePieces(col,row);
         game.board[c-1]-=r;
         console.log(players[this.turnPlayer()] + " removes from column " + c + ", rows 1-"+ r);
-        this.checkWinner()
-        this.switchTurn();
-        toggleDiv("thinking");
-        setTimeout(() => this.aiplay(),1000);
+        if(!this.checkWinner()){
+            this.switchTurn();
+            toggleDiv("thinking");
+            setTimeout(() => this.aiplay(),1000);
+        }
     },
 
     aiplay: function(){
@@ -88,9 +89,5 @@ var game = {
             let rand = Math.floor(Math.random()*this.ncols);
             if(this.board[rand]>0) return ("c"+rand);
         }
-    },
-
-    generateBestPlay: function(){
-
     }
     };
