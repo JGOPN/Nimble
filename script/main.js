@@ -1,11 +1,12 @@
 window.addEventListener("load",function(){
     this.setTimeout(1);
     document.getElementById("configuracoes").style.display = "block";
-    console.log("setting");
+    console.log("loaded");
 },false);
 
 function giveup(){
     let board = document.querySelector(".board");
     board.remove();
+    toggleDiv("status");
     alert("Desistiu");
 }

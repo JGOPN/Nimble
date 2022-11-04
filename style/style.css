@@ -207,10 +207,3 @@ button:hover, button:active{
     width: 50%;
     height: 4%;
 }
-
-#thinking{
-    height: 90px;
-    float: right;
-    position: relative;
-    left: 90%;
-}

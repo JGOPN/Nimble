@@ -71,7 +71,7 @@
         <br>
 
         <!-- button to start the game with the configurations -->
-        <button id="start" type="submit" onclick="generateBoard(4,4);">Iniciar jogo</button>
+        <button id="start" type="submit" onclick="generateBoard();">Iniciar jogo</button>
         <!-- give up the game -->
         <button id="giveup" onclick="giveup()"> Desistir </button>
     </div>
@@ -94,7 +94,10 @@
     </div>
 
     <div id="gameContainer">
-        <img id="thinking" src="/style/images/refresh-dot.png" alt="thinking..." style="display: none;">
+        <div id="status" style="display: none">
+            <img id="thinking" src="/style/images/refresh-dot.png" alt="thinking..." style="display: none;">
+            <h2 id="player">P1</h2>
+        </div>
     </div>
 
     <!-- temporary screen with instructions of the game -->

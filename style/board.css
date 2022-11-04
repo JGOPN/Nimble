@@ -35,3 +35,20 @@
 .highlited-piece{
     filter: brightness(0.5);
 }
+
+#thinking{
+    height: 90px;   
+}
+
+#status{
+    float: right;
+    position: fixed;
+    left: 90%;
+    width: 5%;
+}
+
+#player{
+    color: var(--green);
+    font-size: 2em;
+    text-align: center;
+}

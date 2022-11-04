@@ -16,3 +16,7 @@ function toggleDiv(x){
         document.getElementById(x).style.display = "block";
     }
 }
+
+function showDiv(x){
+    document.getElementById(x).style.display = "block";
+}

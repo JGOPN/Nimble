@@ -14,16 +14,23 @@ var game = {
     board: [],
     ncols: 4,
 
-    init: function(){
-        //this.opponent = document.getElementById("opponent").value;
-        //this.firstPlayer = document.getElementById("first").value;
-        //this.difficulty = document.getElementById("difficulty").value;
-        //this.ncols = document.getElementById("size").value;
+    init: function(ncols,difficulty,opponent,first){
+        game.board = new Array(ncols);
+        this.opponent = opponent
+        this.firstPlayer = first
+        this.difficulty = difficulty
+        this.ncols = ncols
+
+        //If AI plays first
+        if(this.firstPlayer==1){
+            toggleDiv("thinking");
+            setTimeout(() => this.aiplay(),1000);
+        }
     },
 
     switchTurn: function(){
         //troca turn entre 0 e 1
-        this.turn = (this.turn===0 ? 1 : 0);
+        this.turn = (this.turn==0 ? 1 : 0);
     },
 
     turnPlayer: function(){
@@ -31,13 +38,13 @@ var game = {
         let p;
         switch (this.firstPlayer) {
             case 0:
-                p = (this.turn===0) ? 0 : 1;
+                p = (this.turn==0) ? 0 : 1;
                 break;
             case 2: 
-                p = (this.turn===0) ? 2 : 0;
+                p = (this.turn==0) ? 2 : 0;
                 break;
             default:
-                p = (this.turn===0) ? 1 : 0;
+                p = (this.turn==0) ? 1 : 0;
                 break;
         }
         return p;
@@ -59,29 +66,43 @@ var game = {
         return false;
     },
 
-    play: function(col,row){
+    play: function(col,npieces){
         let c = parseInt(col[1]) +1;
-        let r = parseInt(row) +1;
-        removePieces(col,row);
-        game.board[c-1]-=r;
-        console.log(players[this.turnPlayer()] + " removes from column " + c + ", rows 1-"+ r);
+        let r = parseInt(npieces);
+        let size = countPieces(col)
+
+        removePieces(col,npieces);
+        game.board[c-1] -= (size-npieces);
+        console.log(players[this.turnPlayer()] + " removes from column " + c + " npieces " + r);
         if(!this.checkWinner()){
             this.switchTurn();
-            toggleDiv("thinking");
-            setTimeout(() => this.aiplay(),1000);
+            updateCurrentPlayer()
+            if(this.opponent==0){
+                toggleDiv("thinking");
+                setTimeout(() => this.aiplay(),1000);
+            }
         }
     },
 
     aiplay: function(){
         let col = this.generateRandomPlay();
-        let row = countPieces(col);
-        row = Math.floor(Math.random()*row);
-        console.log(players[this.turnPlayer()] + " removes from column " + col + ", "+ (row+1) + "rows");
-        removePieces(col,row);
-        game.board[col[1]] -= (row+1);
+        let npieces = countPieces(col);
+        let size = document.getElementById(col).childElementCount;
+        npieces = Math.floor(Math.random()*npieces);
+
+        removePieces(col,npieces);
+        game.board[col[1]] -= (size-npieces);
+        console.log(players[this.turnPlayer()] + " removes from column " + col + " npieces: " + (npieces+1));
         toggleDiv("thinking");
-        this.checkWinner()
-        this.switchTurn();        
+        if(!this.checkWinner()){
+            if(this.opponent==0){
+                this.switchTurn();
+                updateCurrentPlayer()
+            }
+            else{
+                //logica pra player 2
+            }
+        }
     },
 
     generateRandomPlay: function(){

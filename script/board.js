@@ -1,16 +1,19 @@
-window.addEventListener("load",function(){
-    console.log("loaded");
-},false);
-
-function generateBoard(npieces,cols){
+function generateBoard(){
     if(document.querySelector(".board")!=null){
         document.querySelector(".board").remove();
     }
+
     const base = document.getElementById("gameContainer");
     const board = document.createElement('div');
     board.classList.add("board");
 
-    game.board = new Array(cols);
+    cols = parseInt(document.getElementById("size").value)
+    game.init(
+        cols,
+        parseInt(document.getElementById("difficulty").value),
+        parseInt(document.getElementById("opponent").value),
+        parseInt(document.getElementById("first").value)
+    );
 
     let biggestColumn = 0; //depois gameContainer min-height = biggestcolumn * pieceheight * 1.1
 
@@ -33,21 +36,19 @@ function generateBoard(npieces,cols){
 
     base.append(board);
     addPieceListener();
+    showDiv("status");
     base.style.minHeight = biggestColumn * document.querySelector(".piece").clientHeight * 1.2 + "px";
-    //game.init();
 }
 
 function addPieceListener(){    
     let pieces = document.getElementsByClassName("piece");
     for(let piece of pieces){
         piece.addEventListener('click', () => {
-            piece.addEventListener("click",game.play(
-                piece.parentElement.id, piece.classList[1][1]
-            ),false);
+            game.play(piece.parentElement.id, piece.classList[1][1])
         },false);
         piece.addEventListener('mouseover',() => {
             piece.parentElement.childNodes.forEach((element) => { 
-                if(element.classList[1]<=piece.classList[1])
+                if(element.classList[1]>=piece.classList[1])
                     element.classList.add("highlited-piece");
              })
         })
@@ -63,22 +64,21 @@ function addPieceListener(){
 function removePieces(col,row){
     let column = document.getElementById(col);
     let pieces = column.childNodes;
-    for(let i = 0; i <= row; row--){
-        pieces[i].remove();
+    for(let i = pieces.length-1; i >= row; i--){
+        pieces[0].remove();//sempre remove "de cima"
     }
     pieces.forEach((element) => { 
         element.classList.remove("highlited-piece");
      })
 }
 
-function addPieces(n){
-    //recebe n de pecas e retorna numero aleatorio entre [1,n] para ser colocada na coluna
-    //o numero n (maximo de pecas maximas por cada coluna vai ser decidido no generateBoard?)
-    let rand = Math.floor(Math.random() * n + 1);
-    console.log("adding " + rand + " pieces")
-}
 
 function countPieces(colId){
     let col = document.getElementById(colId);
     return col.childElementCount;
+}
+
+function updateCurrentPlayer(){
+    playersShort=["P1","AI","P2"]
+    document.getElementById("player").innerHTML=playersShort[game.turnPlayer()];
 }
