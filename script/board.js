@@ -80,5 +80,5 @@ function countPieces(colId){
 
 function updateCurrentPlayer(){
     playersShort=["P1","AI","P2"]
-    document.getElementById("player").innerHTML=playersShort[game.turnPlayer()];
+    document.getElementById("player").innerHTML=playersShort[game.currentPlayer];
 }
