@@ -70,9 +70,8 @@
     </div>
 
     <div class="authentication" id="autenticacao" style="display: none;">
-        <!-- criar view quando usuario faz login (mostrar info e botao logout) -->
-        <h2>Autenticação</h2>
-        <form>
+        <h2>Log in</h2>
+        <form id="login">
             <div>
                 <input type="text" placeholder="Username" required="">
             </div>
@@ -83,7 +82,7 @@
                 <button class="login_button" type="submit">Log in</button>
             </div>
         </form>
-
+        <a href="#" onclick="authFormToggle()"><p>Não estou registado</p></a>
     </div>
 
     <div id="gameContainer">

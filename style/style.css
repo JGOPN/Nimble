@@ -138,22 +138,23 @@ button:hover, button:active{
   }
  
   .login_button {
-    outline: none;
-    border: none;
-    cursor: pointer;
     display: inline-block;
     margin: 0 auto;
     padding: 0.9rem 2.5rem;
     background-color: var(--BeeYellow);
-    color: var(--white);
+    color: var(--black-2);
     border-radius: 4px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     font-size: 80%;
+    font-weight: bold;
     width: 50%;
     height: 4%;
   }
 
-
+.authentication a{
+    color: var(--white);
+    text-decoration: none;
+}
 
 /*-----------------------------------------*/
 

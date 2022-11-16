@@ -21,7 +21,7 @@ function generateBoard(){
         let col = document.createElement('div');
         col.classList.add("boardCol");
         col.setAttribute("id","c"+i);
-        let n = Math.floor(Math.random()*4)+1; /* entre 1-5 por pilha */
+        let n = Math.floor(Math.random()*4)+1; /* entre 1-4 por pilha */
         if(n>biggestColumn) biggestColumn=n;
         game.board[i] = n; //game.board = array com piece count de cada coluna
 
